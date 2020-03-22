@@ -19,10 +19,15 @@ public class MainActivity extends AppCompatActivity {
         EditText num = (EditText) findViewById(R.id.Number);
         TextView x = (TextView)findViewById(R.id.x);
         TextView y = (TextView)findViewById(R.id.y);
+        TextView time = (TextView)findViewById(R.id.t);
+        long timeBefore = System.nanoTime();
         int [] res = factor(Integer.parseInt(num.getText().toString()));
+        long timeAfter = System.nanoTime();
 
+        double t = (timeAfter-timeBefore)*Math.pow(10,-9);
         x.setText(Integer.toString(res[0]));
         y.setText(Integer.toString(res[1]));
+        time.setText(Double.toString(t));
 
     }
 
